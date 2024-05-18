@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<button onclick="toggleForm()" class="sub-but" id="openform">Add Post</button>
+<form action="{% url "home" %}" method="post" id="postForm" class="addpostform hid">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">Author</label>
+        <input type="text" id="auther-field" value="{{user.username}}" readonly>
+        {{forms.postForm}}
+        <input type="submit" value="Add Post" class="sub-but">
+    </div>
+</form>
+
+{% for list in content %}
+    <div class="container">
+        <div class="item-content">
+          <h3>{{ list.title }}</h3>
+          <p> BY {{ list.auther }}</p>
+            <p>{{ list.description|truncatechars:200 }}</p>
+            {% if list.auther == user.username %}
+                <button onclick="editPost()">Edit</button>
+                <button onclick="deletePost()">Delete</button>
+            {% endif %}
+        </div>
+        <div class="item-img">
+            <img class="grid-img" src="https://source.unsplash.com/random/?ai" alt="django-img" />
+        </div>
+    </div>
+{% endfor %}
+
+<script>
+    function toggleForm() {
+        document.getElementById("postForm").classList.toggle("hid");
+    }
+
+    function editPost() {
+        // Add your edit functionality here
+    }
+
+    function deletePost() {
+        // Add your delete functionality here
+    }
+</script>
+
+{% endblock %}
+
+{% load static %}
+{% block title %}
+    Blog
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}

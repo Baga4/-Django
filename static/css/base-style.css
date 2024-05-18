@@ -1,0 +1,43 @@
+
+header {
+    background-color: #268bcf;  
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+   
+}
+
+.header-icon {
+    font-size: 24px;
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+.header-icon:hover {
+    color: black;
+    
+}
+a{
+    text-decoration: none;
+}
+footer {
+    background-color: #17a0b3;
+    color:#ffffff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: fixed; /* Change position to fixed */
+    bottom: 0; /* Set bottom to 0 */
+
+}
+
+.footer-icon {
+    font-size: 24px;
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.footer-icon:hover {
+    transform: scale(1.2);
+}

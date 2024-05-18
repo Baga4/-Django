@@ -1,0 +1,105 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+#openform {
+    background-color: #6c757d;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.addpostform {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.hid {
+    display: none;
+}
+
+.addpostform input, .addpostform textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#auther-field {
+    background-color: #e9ecef;
+    border: none;
+    color: #495057;
+}
+
+.sub-but {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sub-but:hover {
+    background-color: #218838;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-author, .item-content, .item-img {
+    padding: 10px;
+}
+
+.item-author p {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.item-content h3 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.item-content p {
+    margin: 10px 0;
+}
+.item-img {
+    max-width: 300px;
+}
+
+.item-img {
+    position: relative;
+    width: 100%;
+    max-height: 200px; /* Set the maximum height if needed */
+    overflow: hidden;
+}
+
+.grid-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-width: 100%; /* Ensure image does not exceed parent width */
+    max-height: 100%;
+ }
