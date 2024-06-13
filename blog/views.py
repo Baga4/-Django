@@ -1,11 +1,12 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate,login,decorators
 from django.contrib.auth.decorators import login_required
 from .models import post
 from . import forms
 # Create your views here.
 
+@login_required
 def home(request):
     user=request.user
     if user.is_authenticated: 
@@ -55,5 +56,8 @@ def user_signin(request):
         form=UserCreationForm() 
     return render(request,'signin.html', { 'form':form})
  
-def edit_post(request,selected_post):
-    pass
+def edit_post(request):
+    user=request.user
+    UserWarning(user.username)
+    
+    return render (request , 'editpost.html',{'form':forms})

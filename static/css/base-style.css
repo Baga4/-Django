@@ -4,7 +4,8 @@ header {
     padding: 20px 0;
     text-align: center;
     width: 100%;
-   
+    position: relative;
+    z-index: 0;
 }
 
 .header-icon {
@@ -12,6 +13,9 @@ header {
     color: #fff;
     margin: 0 10px;
     transition: color 0.3s ease-in-out;
+    position: relative;
+    z-index: 100;
+ 
 }
 
 .header-icon:hover {
@@ -26,9 +30,8 @@ footer {
     color:#ffffff;
     padding: 20px 0;
     text-align: center;
-    width: 100%;
-    position: fixed; /* Change position to fixed */
-    bottom: 0; /* Set bottom to 0 */
+    width: 100%; 
+   
 
 }
 
