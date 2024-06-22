@@ -67,5 +67,5 @@ def edit_post(request, post_id):
             form.save()
             return redirect ("home")
     else:
-        form = forms.postForm( instance= Post_instance )     
+        form = forms.postForm(instance=Post_instance)     
     return render (request , 'editpost.html',{'form':form})
