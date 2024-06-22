@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<button onclick="toggleForm()" class="sub-but" id="openform">Add Post</button>
 <form action="{% url "home" %}" method="post" id="postForm" class="addpostform hid">
     {% csrf_token %}
     <div class="form-group">
@@ -17,32 +15,22 @@
         <div class="item-content">
           <h3>{{ list.title }}</h3>
           <p> BY {{ list.auther }}</p>
-            <p>{{ list.description|truncatechars:200 }}</p>
+          <p> {{list.created_at}} </p>
+          <p> {{current_time}} </p>
+          <p>{{ list.description|truncatechars:200 }}</p>
             {% if list.auther == user.username %}
-                <button onclick="editPost()">Edit</button>
+                <form method="post">
+                {% csrf_token %}
+                <a href=" {% url "edit_post" list.id %}">Edit</a>
                 <button onclick="deletePost()">Delete</button>
+                </form>
             {% endif %}
         </div>
         <div class="item-img">
-            <img class="grid-img" src="https://source.unsplash.com/random/?ai" alt="django-img" />
+            <img class="grid-img" src="https://source.unsplash.com/random/?city,nigh" alt="django-img" />
         </div>
     </div>
 {% endfor %}
-
-<script>
-    function toggleForm() {
-        document.getElementById("postForm").classList.toggle("hid");
-    }
-
-    function editPost() {
-        // Add your edit functionality here
-    }
-
-    function deletePost() {
-        // Add your delete functionality here
-    }
-</script>
-
 {% endblock %}
 
 {% load static %}

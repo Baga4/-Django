@@ -43,9 +43,10 @@ body {
 }
 
 .sub-but {
-    background-color: #28a745;
-    border: none;
-    color: white;
+    background-color: transparent;
+    border: 2px solid green;
+    color: green;
+    font-weight: 500;
     padding: 10px 20px;
     text-transform: uppercase;
     cursor: pointer;
@@ -53,7 +54,7 @@ body {
     transition: background-color 0.3s;
 }
 
-.sub-but:hover {
+sub-but:hover {
     background-color: #218838;
 }
 

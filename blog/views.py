@@ -1,16 +1,17 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
+from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth.forms import UserCreationForm , AuthenticationForm 
 from django.contrib.auth import authenticate,login,decorators
 from django.contrib.auth.decorators import login_required
 from .models import post
-from . import forms
+from . import forms 
+import datetime                                                                                      
 # Create your views here.
 
 @login_required
 def home(request):
     user=request.user
     if user.is_authenticated: 
-        content = post.objects.all()
+        content = post.objects.all().order_by("-created_at")
     else:
         content=None
    
@@ -26,7 +27,7 @@ def home(request):
     return render(request,'index.html',{
         'content':content,
         'user':user,
-        'forms':forms
+        'forms':forms,
         })
 
 def user_login(request):
@@ -56,8 +57,15 @@ def user_signin(request):
         form=UserCreationForm() 
     return render(request,'signin.html', { 'form':form})
  
-def edit_post(request):
-    user=request.user
-    UserWarning(user.username)
-    
+def edit_post(request, post_id):
+    print(post_id)
+    Post_instance = get_object_or_404(post ,id=post_id)
+    print(Post_instance)
+    if request.method == "POST":
+        form = forms.postForm(request.POST ,instance=Post_instance)
+        if form.is_valid():  
+            form.save()
+            return redirect ("home")
+    else:
+        form = forms.postForm(instance=Post_instance)     
     return render (request , 'editpost.html',{'form':forms})
