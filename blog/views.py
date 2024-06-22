@@ -68,4 +68,4 @@ def edit_post(request, post_id):
             return redirect ("home")
     else:
         form = forms.postForm(instance=Post_instance)     
-    return render (request , 'editpost.html',{'form':forms})
+    return render (request , 'editpost.html',{'form':form})
