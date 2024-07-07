@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url "home" %}" method="post" id="postForm" class="addpostform hid">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="username">Author</label>
+        <input type="text" id="auther-field" value="{{user.username}}" readonly>
+        {{forms.postForm}}
+        <input type="submit" value="Add Post" class="sub-but">
+    </div>
+</form>
+
+{% for list in contents %}
+    <div class="container">
+        <div class="item-content">
+          <h3>{{ list.title }}</h3>
+          <p> BY {{ list.auther }}</p>
+          <p> {{list.created_at}} </p>
+          <p> {{current_time}} </p>
+          <p>{{ list.description|truncatechars:200 }}</p>
+            {% if list.auther == user.username %}
+                <form method="post">
+                {% csrf_token %}
+                <a class=" button " href=" {% url "edit_post" list.id %}">Edit</a>
+                <button class="button red" onclick="deletePost()">Delete</button>
+                </form>
+            {% endif %}
+        </div>
+        <div class="item-img">
+            <img class="grid-img" src="https://qph.cf2.quoracdn.net/main-qimg-5f88a096e6bae751dd61c86949dc8bd5-lq" alt="django-img"/>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+
+{% load static %}
+{% block title %}
+    Blog
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock %}

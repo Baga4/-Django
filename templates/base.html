@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> {% block title %} Header Example {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'css/base-style.css' %}" />
+   
+    {% block head %}{% endblock head %}
+  </head>
+  <body>
+    <header class="header">
+      <nav>
+      <a href="{% url 'home' %}" class="nav inline-block"> Home </a>
+      <a href="{% url 'login' %}" class="nav" > login </a>
+      <a href="{% url 'signin' %}" class="nav" > create new user </a> 
+      <input onclick="toggleForm()" type="submit" value="Add Post" class="sub-but">
+    </nav>
+    </header>
+    
+    {% block content %}
+     {% comment %} your main content goes here  {% endcomment %}
+    {% endblock %}
+
+    <footer>
+      <i class="fab fa-facebook-f footer-icon"></i>
+      <i class="fab fa-twitter footer-icon"></i>
+      <i class="fab fa-instagram footer-icon"></i>
+      <i class="fab fa-linkedin-in footer-icon"></i>
+    </footer>
+    <script>
+      function toggleForm() {
+          document.getElementById("postForm").classList.toggle("hid");
+      }
+  </script>
+  </body>
+</html>
