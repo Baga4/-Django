@@ -12,7 +12,6 @@ import datetime
 def home(request):
     user=request.user 
     contents = post.objects.all().order_by("-created_at")
-    print(contents)
     if request.method == 'POST':
         auther=user.username
         title=request.POST['title']
