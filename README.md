@@ -16,14 +16,18 @@ This is a Django project that implements basic CRUD (Create, Read, Update, Delet
    ```bash
    git clone https://github.com/sagardonut/Django.git
    ```
+1. Navigate to the project:
+   ```bash
+   cd Django
+   ```
 2. Create a virtual environment:
 ```bash
-  pythom -m venv venv
+pythom -m venv venv
 ```
 3. Activate the virtual environment:
    * on windows
      ```bash
-        venv\Scripts\activate
+     venv\Scripts\activate
      ```
    * on macOS / Linux
      ```bash
@@ -31,7 +35,7 @@ This is a Django project that implements basic CRUD (Create, Read, Update, Delet
      ```
 4. Install the dependencies:
   ```bash
-        pip install -r requirements.txt
+  pip install -r requirements.txt
   ```
 5. Apply migrations
    * Make migrate
@@ -40,7 +44,7 @@ This is a Django project that implements basic CRUD (Create, Read, Update, Delet
    ```
    * Apply migrations
    ```bash
-      python manage.py makemigrations
+   python manage.py makemigrations
    ```
 6. Create superuser
    ```bash
@@ -48,7 +52,7 @@ This is a Django project that implements basic CRUD (Create, Read, Update, Delet
    ```
 7. Run the development server
    ```bash
-      python manage.py runserver
+   python manage.py runserver
    ```
 * navigate to the registration page `https://127.0.0.1:8000/`
 * You will be redirected to login page where you can create a new user and view the feed page
