@@ -2,6 +2,8 @@
 
 This is a Django project that implements basic CRUD (Create, Read, Update, Delete) operations, along with user registration, user login, and a feed page where posts can be managed by their respective creators (current logged-in users).
 
+This project is intended to be the base for creating any feed related project where users can post their content . This project is just a base to create a bigger / scaleable application
+
 ## Features
 
 - User Registration
